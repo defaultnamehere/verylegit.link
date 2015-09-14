@@ -1,0 +1,46 @@
+
+import subprocess
+import urlparse
+
+
+
+class URLValidator():
+    """Decides whether or not a URL is welcome as part of this 150% legit service."""
+
+    ALLOWED_PROTOCOLS = set(("http", "https", ""))
+
+    def __init__(self, url):
+        self.url = url
+        url_parts = urlparse.urlparse(self.url)
+        self.protocol = url_parts.scheme
+        self.domain = url_parts.netloc
+
+    def validate_url(self):
+        """
+        Checks that a URL is in fact a URL and not some other string
+        url: The url to validate
+        """
+
+        return all(self.check_protocol(), self.check_dns())
+
+    def check_protocol(self):
+        """Checks that the URL has a protocol that we're willing to obfuscate (http or https or no protocol)"""
+        # Reject unknown protocols.
+        return self.protocol in self.ALLOWED_PROTOCOLS
+
+    def check_dns(self):
+        """
+        Does a DNS lookup on the domain part of the URL to check that it resolves
+        """
+        # Okay so this is the best way to resolve DNS with a timeout as far as I can tell.
+        # Ways that are Not This involve installing a dodgy external library or
+        # using multiprocessing and you, dear reader, deserve better than that.
+        # So here you go.
+        try:
+            # Ping the domain and see if the DNS resolves. 
+            # We could also use the host command here but it's slower since it resolves many kinds of records.
+            subprocess.check_call(['/bin/ping','-W','1','-c', '1', self.domain])
+            return True
+        except subprocess.CalledProcessError:
+            return False
+
