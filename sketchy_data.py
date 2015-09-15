@@ -2,7 +2,7 @@
 # Yeah yeah yeah you're here to look at the gags go on then do it.
 MAX_NUM_SKETCHY_WORDS = 4
 MAX_NUM_FILETYPES = 2
-MAX_NUM_LETTER_REPLACEMENTS = 4
+MAX_NUM_LETTER_REPLACEMENTS = 1
 
 DOMAINS = ("heapslegit.link", "freemalware.club", "spywareexchange.party")
 

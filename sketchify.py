@@ -25,7 +25,9 @@ class URLSketchifer():
         scary_words = set((random.choice(sketchy_data.SCARY_WORDS) for _ in range(random.randint(1, sketchy_data.MAX_NUM_SKETCHY_WORDS))))
 
         # Choose the filetypes.
-        filetypes = set(random.choice(sketchy_data.FILETYPES for _ in range(random.randint(1, sketchy_data.MAX_NUM_FILETYPES))))
+        filetypes = set((
+            random.choice(sketchy_data.FILETYPES)
+            for _ in range(random.randint(1, sketchy_data.MAX_NUM_FILETYPES))))
 
         # Choose the single ending filetype.
         ending_filetype = random.choice(sketchy_data.ENDING_FILETYPES)
@@ -44,11 +46,16 @@ class URLSketchifer():
 
         # BUT WE'RE NOT DONE YET, CALL RIGHT NOW AND I'LL TRIPLE THE OFFER.
         replacement_indicies = (random.choice(range(len(sketchy_filename) - 3)) for _ in range(sketchy_data.MAX_NUM_LETTER_REPLACEMENTS))
+
+        # Make the string a list so we can add stuff at indicies.
+        sketchy_filename = list(sketchy_filename)
         for index in replacement_indicies:
             sketchy_filename[index] = random.choice(sketchy_data.WEIRD_STRINGS)
 
+        sketchy_filename = "".join(sketchy_filename)
+
         # Put it all together.
-        sketchy_path = "{sketchy_filename}{filetypes}.{ending_filetype}".format(sketchy_filename=sketchy_filename, filetypes=".".join(filetypes), ending_filetype=ending_filetype)
+        sketchy_path = "{sketchy_filename}.{filetypes}.{ending_filetype}".format(sketchy_filename=sketchy_filename, filetypes=".".join(filetypes), ending_filetype=ending_filetype)
 
 
         return "{domain}/{path}".format(domain=domain, path=sketchy_path)
