@@ -15,9 +15,8 @@ class URLSketchifer():
         self.long_url = long_url
 
     def generate_sketchy_url(self):
-        """Example URL: heapslegit.link/ind%3x_x86_x64(free)___mov_7sk%a6-mov-%resume.pdf.jp%eg.exe.pdf.exe"""
-
-        domain = random.choice(sketchy_data.DOMAINS)
+        """Example URL: heapslegit.link/ind%3x_x86_x64(free)___mov_7sk%a6-mov-%resume.pdf.jp%eg.exe.pdf.exe
+        This method only generates the bit after the /, since the domain is ignored."""
 
         # Choose a few random sketchy scary words, removing duplicates in case there are any.
         scary_words = set((random.choice(sketchy_data.SCARY_WORDS) for _ in range(random.randint(1, sketchy_data.MAX_NUM_SKETCHY_WORDS))))
@@ -56,4 +55,4 @@ class URLSketchifer():
         sketchy_path = "{sketchy_filename}.{filetypes}.{ending_filetype}".format(sketchy_filename=sketchy_filename, filetypes=".".join(filetypes), ending_filetype=ending_filetype)
 
 
-        return "{domain}/{path}".format(domain=domain, path=sketchy_path)
+        return sketchy_path

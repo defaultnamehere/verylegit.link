@@ -1,9 +1,12 @@
 
 from flask import Flask, render_template, request, abort, redirect
+import random
 
 import database
 import sketchify
+import sketchy_data
 import validate
+
 
 app = Flask('heapslegit')
 db = database.URLStoreModel()
@@ -25,7 +28,7 @@ def sketchify_url():
         return abort(401)
 
 
-    # Add a http:// if one isn't present.
+    # Add a http:// if a protocol isn't present.
     if not(long_url.startswith("http://") or long_url.startswith("https://")):
         long_url = "http://" + long_url
 
@@ -48,19 +51,17 @@ def sketchify_url():
 
 
 
-        # Only care about the part after the slash, since we don't care about the domain
-        sketchy_path = sketchy_url[sketchy_url.index("/") + 1:]
-
         # Save it to the database FO' LATAHZ
-        db.set_url(long_url, sketchy_path)
+        db.set_url(long_url, sketchy_url)
 
     # Here you go have your url ya nerd
-    return sketchy_url
+    return "{proto}{domain}/{path}".format(proto=random.choice(("http://", "")), domain=random.choice(sketchy_data.DOMAINS), path=sketchy_url)
 
 
 @app.route('/<sketchy_extension>', methods=["GET"])
 def redirect_to_sketchy_url(sketchy_extension):
 
+    
     # Get the long url for this short url.
     long_url = db.get_long_url(sketchy_extension)
     print sketchy_extension
