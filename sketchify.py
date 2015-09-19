@@ -42,7 +42,7 @@ class URLSketchifer():
         sketchy_filename = "".join(sketchy_filename)
 
         # URL encode the path.
-        sketchy_filename = urllib.quote(sketchy_filename, safe="%/")
+        sketchy_filename = urllib.quote(sketchy_filename, safe="")
 
         # BUT WE'RE NOT DONE YET, CALL RIGHT NOW AND I'LL TRIPLE THE OFFER.
         replacement_indicies = (random.choice(range(len(sketchy_filename) - 3)) for _ in range(sketchy_data.MAX_NUM_LETTER_REPLACEMENTS))

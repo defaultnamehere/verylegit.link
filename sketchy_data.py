@@ -71,7 +71,6 @@ DELIMITERS = (
     "__",
     "_",
     "+",
-    "%20",
     "=",
     "$",
     "(",
@@ -82,8 +81,8 @@ DELIMITERS = (
 # Characters to replace randomly deleted letters.
 # In some ways these are all weird strings.
 WEIRD_STRINGS = (
-    "%",
-    "%%",
-    "%3d",
     "0x8"
+    "*",
+    ";",
+    "-"
 )

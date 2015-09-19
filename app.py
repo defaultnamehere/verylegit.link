@@ -57,8 +57,8 @@ def redirect_to_sketchy_url(sketchy_extension):
     long_url = db.get_long_url(sketchy_extension)
     print sketchy_extension
     print long_url
-    print("{sketchy_extension} -> {long_url}".format(sketchy_extension=sketchy_extension,
-                                                     long_url=long_url))
+    #print("{sketchy_extension} -> {long_url}".format(sketchy_extension=sketchy_extension,
+    #                                                 long_url=long_url))
     if long_url is None:
         return abort(404)
 
