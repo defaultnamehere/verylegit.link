@@ -8,8 +8,6 @@ import sketchy_data
 class URLSketchifer():
     """Do the good stuff. YOU know what I mean"""
 
-    # TODO Subdomains
-
     def __init__(self, long_url):
         """
         long_url: The url to shorten

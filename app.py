@@ -3,6 +3,7 @@ from flask import Flask, render_template, request, abort, redirect
 
 import database
 import sketchify
+import validate
 
 app = Flask('heapslegit')
 db = database.URLStoreModel()
@@ -16,6 +17,13 @@ def sketchify_url():
     long_url = request.form.to_dict().get("long_url")
     if long_url is None:
         return abort(401)
+
+    # So you'd like to submit this URL.
+    # Let's just make sure you're not trying to 360 noscope hack somebody first.
+    validator = validate.URLValidator(long_url)
+    if not validator.validate_url():
+        return abort(401)
+
 
     # Add a http:// if one isn't present.
     if not(long_url.startswith("http://") or long_url.startswith("https://")):

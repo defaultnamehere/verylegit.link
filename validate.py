@@ -7,6 +7,7 @@ import urlparse
 class URLValidator():
     """Decides whether or not a URL is welcome as part of this 150% legit service."""
 
+    # I'm sure this will be secure enough.
     ALLOWED_PROTOCOLS = set(("http", "https", ""))
 
     def __init__(self, url):
@@ -19,6 +20,8 @@ class URLValidator():
         """
         Checks that a URL is in fact a URL and not some other string
         url: The url to validate
+
+        To add more validation checks, add a method to this class and call it in the all() function in this method.
         """
 
         return all(self.check_protocol(), self.check_dns())
@@ -37,7 +40,7 @@ class URLValidator():
         # using multiprocessing and you, dear reader, deserve better than that.
         # So here you go.
         try:
-            # Ping the domain and see if the DNS resolves. 
+            # Ping the domain and see if the DNS resolves.
             # We could also use the host command here but it's slower since it resolves many kinds of records.
             subprocess.check_call(['/bin/ping','-W','1','-c', '1', self.domain])
             return True
