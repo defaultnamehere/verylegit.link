@@ -4,6 +4,8 @@ import urllib
 
 import sketchy_data
 
+def add_random_domain(path):
+    return "{domain}/{path}".format(domain=random.choice(sketchy_data.DOMAINS), path=path)
 
 class URLSketchifer():
     """Do the good stuff. YOU know what I mean"""

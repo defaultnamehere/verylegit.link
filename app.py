@@ -13,7 +13,9 @@ db = database.URLStoreModel()
 
 @app.route('/')
 def index():
-    return render_template("index.html")
+    sample_long_url = random.choice(sketchy_data.SAMPLE_LONG_URLS)
+    sample_sketchy_url = sketchify.add_random_domain(db.get_sketchy_url(sample_long_url))
+    return render_template("index.html", sample_long_url=sample_long_url, sample_sketchy_url=sample_sketchy_url)
 
 @app.route('/sketchify', methods=["POST"])
 def sketchify_url(): 

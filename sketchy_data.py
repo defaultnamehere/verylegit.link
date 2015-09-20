@@ -6,6 +6,8 @@ MAX_NUM_LETTER_REPLACEMENTS = 1
 
 DOMAINS = ("heapslegit.link", "freemalware.club", "spywareexchange.party")
 
+SAMPLE_LONG_URLS = ("http://google.com", "http://facebook.com", "http://i.imgur.com/OpYDgt3.gif")
+
 SCARY_WORDS = (
     "mov",
     "free",
