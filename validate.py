@@ -10,6 +10,9 @@ class URLValidator():
     # I'm sure this will be secure enough.
     ALLOWED_PROTOCOLS = set(("http", "https", ""))
 
+    # .... Really?
+    MAXIMUM_URL_LENGTH = 2083
+
     def __init__(self, url):
         self.url = url
         url_parts = urlparse.urlparse(self.url)
@@ -31,6 +34,9 @@ class URLValidator():
         """
 
         return all((self.check_protocol(), self.check_dns()))
+
+    def check_length(self):
+        return len(self.url) <= self.MAXIMUM_URL_LENGTH
 
     def check_protocol(self):
         """Checks that the URL has a protocol that we're willing to obfuscate (http or https or no protocol)"""

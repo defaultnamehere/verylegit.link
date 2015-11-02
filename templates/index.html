@@ -1,16 +1,17 @@
 {% extends 'base.html' %}
 
 {% block nav %}
-<nav class="navbar navbar-inverse navbar-embossed" role="navigation">
+<nav class="navbar navbar-inverse navbar-embossed nav-main" role="navigation">
             <div class="navbar-header">
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
                 <span class="sr-only">Toggle navigation</span>
               </button>
-              <a class="navbar-brand" href="#">Heaps Legit</a>
+              <a class="navbar-brand" href="#">Sketchify</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse-01">
               <ul class="nav navbar-nav navbar-left">
-                  <li><a href="#fakelink">What is this?
+                  <li><a href="#fakelink">
+                      What is this?
                   </a></li>
                 <li><a href="#fakelink">Who made it?</a></li>
                 <li><a href="#fakelink">API</a></li>
@@ -24,49 +25,65 @@
 </div>
 <div>
     <div class="shoutout text-center">
-        <h2>Turn any link into a dodgy looking one</h2>
+        <h2 class="slogan slideout">Turn any link into a suspicious looking one</h2>
     </div>
-    <div class="example text-center">
+    <div class="example slideout text-center">
         <p class="muted"> e.g. <a href="{{sample_long_url}}">{{sample_long_url}}</a></p>
         <span class="muted glyphicon glyphicon-arrow-down downarrow" aria-hidden="true"></span>
         <p class="muted"> <a href={{sample_sketchy_url}}>{{sample_sketchy_url}}</a></p>
     </div>
-    <div class="result text-center">
-        <p class="result">  </p>
-    </div>
 </div>
 
-<div class="container form-horizontal sketchify-form-div">
-    <div class="sketchify-form " action="#">
-        <input type="text" value="" placeholder="e.g. http://google.com" class="form-control long-url">
-        <div class="sketchify-buttons">
-            <button type="button " class="btn btn-block btn-lg btn-inverse btn-large btn-sketchify" >Do it</button>
-        </div>
-    </div>
+<div class="container form-horizontal slideout sketchify-form-div">
+        <div class="result text-center slideable" style="display: none;">
+            <p class="result result-long"></p>
+            <span class="glyphicon glyphicon-arrow-down downarrow-lg" aria-hidden="true"></span>
+            <p class="result result-sketchy"></p>
 
+            <h4 class="result about muted">
+                Enjoy your new 150% legit URL.
+            </h4>
+        </div>
+        <form class="sketchify" action="#">
+
+            <div class="error text-center" style="display: none;" >
+                <p class="error">
+                That doesn't look like a URL.
+                </p>
+
+            </div>
+            <div class="sketchify-form slideable">
+                <input type="text" value="" placeholder="e.g. http://google.com" class="form-control long-url">
+                <div class="sketchify-buttons">
+                    <button type="button " class="btn btn-block btn-lg btn-inverse btn-large btn-sketchify" >Make this URL look real suspicious</button>
+                </div>
+            </div>
+        </form>
 </div>
 <div class="footer ">
     <div class="container">
-        <h4 class="faq">What is this?</h3>
+        <h4 class="faq">
+                      TODO turn this into a one-page wonder with left and right bubbles of features
+        </h3>
         <div class="faq ">
             <p class="muted outro">
-            textfac.es (or textfaces or text faces, I'm not really sure either and the words in these parentheses are really only here for SEO ( ͡° ͜ʖ ͡°)) lets you finally write those damn unicode faces. You should probably bookmark it so you don't lose it. Or just google "textfaces" every time look I don't care I'm not the boss of you. When you need a textface, just hit the bookmark, click the face, and paste it where you want it to go.
+            words
             </p>
         </div>
     </div>
     <div class="container">
-        <h4 class="faq">How does the click-to-copy work?</h3>
+        <h4 class="faq">Is it safe?</h3>
         <div class="faq ">
             <p class="muted outro">
-            The click-to-copy works through <a class="muted" href="http://jonrohan.github.com/ZeroClipboard/">ZeroClipboard</a>, which uses Flash (I'm so sorry). If you don't have Flash, you'll have to highlight the faces like a caveman.
+            welllllllllllllllllllll
             </p>
         </div>
     </div>
     <div class="container">
-        <h4 class="faq">Some of them look kinda weird.</h3>
-        <div class="faq ">
+        <h4 class="faq">Why did you make this you strange person</h3>
+        <div class="faq">
             <p class="muted outro">
-            If the faces look weird or you see rectangles all over the place, you might not have the right fonts installed. Or the face might actually be weird.
+            Look I ain't yo puppet
             </p>
         </div>
     </div>

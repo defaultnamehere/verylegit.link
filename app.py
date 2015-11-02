@@ -7,6 +7,8 @@ import sketchify
 import sketchy_data
 import validate
 
+import urllib
+
 
 app = Flask('heapslegit')
 db = database.URLStoreModel()
@@ -51,8 +53,6 @@ def sketchify_url():
                 # This url is unique and we don't need to re-generate
                 break
 
-
-
         # Save it to the database FO' LATAHZ
         db.set_url(long_url, sketchy_url)
 
@@ -63,13 +63,11 @@ def sketchify_url():
 @app.route('/<sketchy_extension>', methods=["GET"])
 def redirect_to_sketchy_url(sketchy_extension):
 
-    
+    sketchy_extension = urllib.quote(sketchy_extension)
     # Get the long url for this short url.
     long_url = db.get_long_url(sketchy_extension)
-    print sketchy_extension
-    print long_url
-    #print("{sketchy_extension} -> {long_url}".format(sketchy_extension=sketchy_extension,
-    #                                                 long_url=long_url))
+    print("{sketchy_extension} -> {long_url}".format(sketchy_extension=sketchy_extension,
+                                                     long_url=long_url))
     if long_url is None:
         return abort(404)
 
