@@ -16,9 +16,10 @@ class URLValidator():
     def __init__(self, url):
         self.url = url
         url_parts = urlparse.urlparse(self.url)
-        print url
-        print url_parts
+        print(url)
+        print(url_parts)
         self.protocol = url_parts.scheme
+
         # The domain becomes the path if there is no protocol.
         if self.protocol:
             self.domain = url_parts.netloc
@@ -33,7 +34,7 @@ class URLValidator():
         To add more validation checks, add a method to this class and call it in the all() function in this method.
         """
 
-        return all((self.check_protocol(), self.check_dns()))
+        return all((self.check_length(), self.check_protocol(), self.check_dns()))
 
     def check_length(self):
         return len(self.url) <= self.MAXIMUM_URL_LENGTH
@@ -54,7 +55,7 @@ class URLValidator():
         try:
             # Ping the domain and see if the DNS resolves.
             # We could also use the host command here but it's slower since it resolves many kinds of records.
-            print "Pinging {domain}...".format(domain=self.domain)
+            print("Pinging {domain}...".format(domain=self.domain))
             subprocess.check_call(['/bin/ping','-W','1','-c', '1', self.domain])
             return True
         except subprocess.CalledProcessError:
