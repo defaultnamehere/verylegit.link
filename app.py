@@ -16,7 +16,11 @@ db = database.URLStoreModel()
 @app.route('/')
 def index():
     sample_long_url = random.choice(sketchy_data.SAMPLE_LONG_URLS)
-    sample_sketchy_url = sketchify.add_random_domain(db.get_sketchy_url(sample_long_url))
+    #TODO prepopulate the DB with these sample urls
+    # TODO add random number to URL to reduce collisions
+    sample_sketchy_extension = db.get_sketchy_url(sample_long_url)
+    sample_sketchy_url = sketchify.add_random_domain(sample_sketchy_extension)
+
     return render_template("index.html", sample_long_url=sample_long_url, sample_sketchy_url=sample_sketchy_url)
 
 @app.route('/sketchify', methods=["POST"])
@@ -42,16 +46,8 @@ def sketchify_url():
     # Okay fine it wasn't there thanks obama
     if sketchy_url is None:
 
-        sketchifier = sketchify.URLSketchifer(long_url)
-
-        # Generate a random URL we don't have yet.
-        # Techinically this function may never return.
-        while True:
-            # Screw the rules we'll make our own URL
-            sketchy_url = sketchifier.generate_sketchy_url()
-            if db.get_long_url(sketchy_url) is None:
-                # This url is unique and we don't need to re-generate
-                break
+        # Screw the rules we'll make our own URL
+        sketchy_url = sketchify.generate_sketchy_url()
 
         # Save it to the database FO' LATAHZ
         db.set_url(long_url, sketchy_url)
