@@ -23,6 +23,7 @@ def index():
 def sketchify_url(): 
     long_url = request.form.to_dict().get("long_url")
     if long_url is None:
+        # TODO A better error code or just not letting users submit empty forms.
         return abort(401)
 
     # So you'd like to submit this URL.
@@ -33,19 +34,21 @@ def sketchify_url():
 
 
     # Add a http:// if a protocol isn't present.
+    #TODO What why is it searching HTTP only
     if not(long_url.startswith("http://") or long_url.startswith("https://")):
         long_url = "http://" + long_url
 
     # Try and just get this URL out of the database I mean it might already be there might as well go fishing
     sketchy_url = db.get_sketchy_url(long_url)
 
-    # Okay fine it wasn't there thanks obama
+    # Okay fine it wasn't there Thanks Obama
     if sketchy_url is None:
 
         sketchifier = sketchify.URLSketchifer(long_url)
 
         # Generate a random URL we don't have yet.
         # Techinically this function may never return.
+        # Also if the space of random URLs we can generate fills up this server is going to crash huh.
         while True:
             # Screw the rules we'll make our own URL
             sketchy_url = sketchifier.generate_sketchy_url()

@@ -1,0 +1,165 @@
+/*
+body {
+    color: white;
+    background-image: url("../img/tile/stardust.png");
+}
+input {
+    color: white !important;
+    /* It's fiiiiiiine */
+    background-image: url("../img/tile/stardust.png") !important;
+}
+*/
+.muted {
+    color: #cccccc;
+}
+
+span.downarrow {
+    font-size: 2em;
+} 
+.sketchify-header {
+    font-size : 100px !important;
+    line-height: 100px;
+}
+
+div.sketchify-form-div{
+
+    padding-top: 150px;
+}
+form.sketchify-form {
+
+    width: 350px;
+    margin: 0 auto !important;
+
+}
+
+.disabled {
+    opacity: 0.4;
+    pointer-events: none;
+}
+input.phrase {
+    display: block;
+    height: initial;
+}
+p.error {
+    color: #C0392B;
+}
+
+h4.about {
+    padding-top: 150px;
+    color: #aaaaaa;
+}
+
+button.btn-block {
+    width:300px;
+    margin:0 auto;
+}
+div.sketchify-buttons {
+    padding-top: 20px;
+}
+img.snoop {
+    display: inline;
+    position: absolute;
+}
+
+img.snoop-right {
+    margin-left: 300px
+}
+div.outro {
+    padding-top: 200px; /*CSS is too hard. I'm no @taybenlor */
+}
+
+img.illuminati {
+    /* SPOOKY */
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+}
+
+img.frog {
+    -moz-animation-timing-function: linear;
+    -moz-animation-name: bounce;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-direction: alternate;
+    -moz-animation-duration: 3s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-name: bounce;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+
+    width: 100px;
+    height: 100px;
+}
+
+
+.flipped {
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+}
+
+@-webkit-keyframes bounce {
+  from {
+    left: 0%;
+  }
+
+  to {
+    left: 100%;
+  }
+}
+@-moz-keyframes bounce {
+  from {
+    left: 0%;
+  }
+
+  to {
+    left: 100%;
+  }
+}
+
+
+.cursor-hitmarker {
+    cursor: url("../res/hitmarker.png"), url("../res/hitmarker.png"), auto;
+}
+
+.bottom {
+    position: fixed;
+    bottom: 0px;
+}
+
+img.explosion {
+   width: 50%; 
+   position: fixed;
+}
+
+.right {
+    right: 0;
+}
+
+div.footer {
+    padding-top: 200px; /* CSS is hard. I'm no @taybenlor */
+}
+
+div.result {
+    padding-bottom: 150px;
+}
+p.result {
+    font-size: 32px;
+}
+span.downarrow-lg {
+    font-size: 70px;
+}
+nav.nav-main {
+    border-radius: 0px;
+}
+
+
+
+
+
+
