@@ -45,6 +45,9 @@ class URLStoreModel():
 
         self.db.child("long_urls").child(long_url).set(data)
         self.db.child("sketchy_urls").child(sketchy_url).set(data)
+        print("Setting (unescaped)" + utils.firebase_unescape(long_url)+ " -> " + utils.firebase_unescape(sketchy_url))
+
+        print("Setting " + long_url + " -> " + sketchy_url)
 
     @utils.escape_string_args
     def get_long_url(self, sketchy_url):
@@ -52,11 +55,14 @@ class URLStoreModel():
         url_data = self.db.child("sketchy_urls").child(sketchy_url).get()
 
         # None if we don't have this URL already
-        if not url_data:
+        if not url_data or not url_data.val():
+            #print("Getting: "+  utils.firebase_unescape(sketchy_url) + " -> None")
             return None
 
 
-        return utils.firebase_unescape(url_data.val()["long_url"])
+        long_url = utils.firebase_unescape(url_data.val()["long_url"])
+        #print("Getting: " + utils.firebase_unescape(sketchy_url) + " -> " + utils.firebase_unescape(long_url))
+        return long_url
 
     @utils.escape_string_args
     def get_sketchy_url(self, long_url):
@@ -65,6 +71,9 @@ class URLStoreModel():
 
         # None if we don't have this URL already
         if not url_data or not url_data.val():
+            print(long_url+ " -> None")
             return None
 
-        return utils.firebase_unescape(url_data.val()["sketchy_url"])
+        sketchy_url = utils.firebase_unescape(url_data.val()["sketchy_url"])
+        print(long_url + " -> " + sketchy_url)
+        return sketchy_url

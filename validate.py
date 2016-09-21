@@ -14,6 +14,8 @@ class URLValidator():
     MAXIMUM_URL_LENGTH = 2083
 
     def __init__(self, url):
+        if not (url.startswith("http://") or url.startswith("https://")):
+            url = "http://" + url
         self.url = url
         self.url_parts = urlparse.urlparse(self.url)
         print(url)

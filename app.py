@@ -7,7 +7,7 @@ import sketchify
 import sketchy_data
 import validate
 
-import urllib
+import urllib.parse
 
 
 app = Flask('heapslegit')
@@ -37,10 +37,6 @@ def sketchify_url():
         return abort(401)
 
 
-    # Add a http:// if a protocol isn't present.
-    #TODO What why is it searching HTTP only
-    if not(long_url.startswith("http://") or long_url.startswith("https://")):
-        long_url = "http://" + long_url
 
     # Try and just get this URL out of the database I mean it might already be there might as well go fishing
     sketchy_url = db.get_sketchy_url(long_url)
@@ -61,7 +57,7 @@ def sketchify_url():
 @app.route('/<sketchy_extension>', methods=["GET"])
 def redirect_to_sketchy_url(sketchy_extension):
 
-    sketchy_extension = urllib.quote(sketchy_extension)
+    #sketchy_extension = urllib.parse.unquote(sketchy_extension)
     # Get the long url for this short url.
     long_url = db.get_long_url(sketchy_extension)
     print("{sketchy_extension} -> {long_url}".format(sketchy_extension=sketchy_extension,
@@ -69,6 +65,9 @@ def redirect_to_sketchy_url(sketchy_extension):
     if long_url is None:
         return abort(404)
 
+    # Add a protocol if one isn't present, so the redirect becomes an absolute URL.
+    if not (long_url.startswith("http://") or long_url.startswith("https://")):
+        long_url = "http://" + long_url
     return redirect(long_url)
 
 if __name__ == '__main__':
