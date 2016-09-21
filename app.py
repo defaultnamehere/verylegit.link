@@ -47,6 +47,8 @@ def sketchify_url():
         # Screw the rules we'll make our own URL
         sketchy_url = sketchify.generate_sketchy_url()
 
+        if "%" in sketchy_url:
+            import ipdb; ipdb.set_trace()
         # Save it to the database FO' LATAHZ
         db.set_url(long_url, sketchy_url)
 
