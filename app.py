@@ -16,7 +16,6 @@ db = database.URLStoreModel()
 @app.route('/')
 def index():
     sample_long_url = random.choice(sketchy_data.SAMPLE_LONG_URLS)
-    #TODO prepopulate the DB with these sample urls
     # TODO add random number to URL to reduce collisions
     sample_sketchy_extension = db.get_sketchy_url(sample_long_url)
     sample_sketchy_url = sketchify.add_random_domain(sample_sketchy_extension)
