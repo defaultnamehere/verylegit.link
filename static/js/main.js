@@ -1,18 +1,19 @@
 
 var ANIMATION_DURATION = 500;
-    $('.slideable').each(function() {
-        if ($(this).offset().left < 0) {
-            $(this).css("left", "150%");
-        } else if ($(this).offset().left > $('div.container').width()) {
-            $(this).animate({
-                left: '50%',
-            }, 500 );
-        } else {
-            $(this).animate({
-                left: '-150%',
-            }, 500 );
-        }
-    });
+
+$('.slideable').each(function() {
+    if ($(this).offset().left < 0) {
+        $(this).css("left", "150%");
+    } else if ($(this).offset().left > $('div.container').width()) {
+        $(this).animate({
+            left: '50%',
+        }, 500 );
+    } else {
+        $(this).animate({
+            left: '-150%',
+        }, 500 );
+    }
+});
 
 function handleURL() {
     // Get the entered URL.

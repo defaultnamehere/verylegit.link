@@ -49,7 +49,7 @@ SCARY_WORDS = (
     "x64",
     "32",
     "64"
-    )
+)
 
 FILETYPES = (
     "mp4",

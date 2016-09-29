@@ -1,12 +1,12 @@
 
 import random
-import urllib
 import sketchy_data
 
 def add_random_domain(path):
     return "{domain}/{path}".format(domain=random.choice(sketchy_data.DOMAINS), path=path)
 
 
+# TODO: Sometimes just use the raw ip instead of a domain by dynamically resolving it.
 def generate_sketchy_url():
     """Example URL: heapslegit.link/ind%3x_x86_x64(free)___mov_7sk%a6-mov-%resume.pdf.jp%eg.exe.pdf.exe
     This method only generates the bit after the /, since the domain is ignored."""
@@ -32,7 +32,7 @@ def generate_sketchy_url():
     sketchy_filename = "".join(sketchy_filename)
 
     # URL encode the path.
-    #sketchy_filename = urllib.parse.quote(sketchy_filename, safe="")
+    # sketchy_filename = urllib.parse.quote(sketchy_filename, safe="")
 
     # BUT WE'RE NOT DONE YET, CALL RIGHT NOW AND I'LL TRIPLE THE OFFER.
     weird_string_indicies = (random.choice(range(len(sketchy_filename) - 3)) for _ in range(sketchy_data.MAX_NUM_LETTER_REPLACEMENTS))

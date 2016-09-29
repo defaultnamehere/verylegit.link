@@ -7,8 +7,6 @@ import sketchify
 import sketchy_data
 import validate
 
-import urllib.parse
-
 
 app = Flask('heapslegit')
 db = database.URLStoreModel()
@@ -16,7 +14,6 @@ db = database.URLStoreModel()
 @app.route('/')
 def index():
     sample_long_url = random.choice(sketchy_data.SAMPLE_LONG_URLS)
-    #TODO prepopulate the DB with these sample urls
     # TODO add random number to URL to reduce collisions
     sample_sketchy_extension = db.get_sketchy_url(sample_long_url)
     sample_sketchy_url = sketchify.add_random_domain(sample_sketchy_extension)
@@ -24,7 +21,7 @@ def index():
     return render_template("index.html", sample_long_url=sample_long_url, sample_sketchy_url=sample_sketchy_url)
 
 @app.route('/sketchify', methods=["POST"])
-def sketchify_url(): 
+def sketchify_url():
     long_url = request.form.to_dict().get("long_url")
     if long_url is None:
         # TODO A better error code or just not letting users submit empty forms.
@@ -47,8 +44,6 @@ def sketchify_url():
         # Screw the rules we'll make our own URL
         sketchy_url = sketchify.generate_sketchy_url()
 
-        if "%" in sketchy_url:
-            import ipdb; ipdb.set_trace()
         # Save it to the database FO' LATAHZ
         db.set_url(long_url, sketchy_url)
 
@@ -58,8 +53,6 @@ def sketchify_url():
 
 @app.route('/<sketchy_extension>', methods=["GET"])
 def redirect_to_sketchy_url(sketchy_extension):
-
-    #sketchy_extension = urllib.parse.unquote(sketchy_extension)
     # Get the long url for this short url.
     long_url = db.get_long_url(sketchy_extension)
     print("{sketchy_extension} -> {long_url}".format(sketchy_extension=sketchy_extension,
@@ -73,4 +66,4 @@ def redirect_to_sketchy_url(sketchy_extension):
     return redirect(long_url)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True) 
+    app.run(host='0.0.0.0', debug=True)
