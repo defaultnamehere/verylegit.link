@@ -18,6 +18,19 @@ function handleURL() {
     // Get the entered URL.
     var long_url = $('input.long-url').val();
 
+    var $spinner = $('.spinner');
+    var $submitBtn = $('button.btn-sketchify');
+
+    // Show a spinner.
+    // This doesn't use fadeOut, because that sets display: none on the element.
+    // This makes the page layout jank.
+    // By using fadeTo on the opacity property, the hidden element still
+    // takes up space.
+    $spinner.fadeTo('fast', 1);
+
+    // Hide the button for #UX
+    $submitBtn.hide();
+
     // TODO post a google analytics event
     $.post("/sketchify", {
         "long_url": long_url
@@ -37,12 +50,16 @@ function handleURL() {
         $('form.sketchify').removeClass("has-error")
         $('div.error').hide();
 
+        $spinner.fadeTo('fast', 0);
+        $submitBtn.show();
     })
     .fail(function(data) {
         console.log("failed");
         $('form.sketchify').addClass("has-error")
         $('div.error').show();
         $('div.result').hide(300);
+        $spinner.fadeTo('fast', 0);
+        $submitBtn.show();
     });
     return false;
 };
@@ -54,12 +71,13 @@ $('form.sketchify-form').submit(function(e) {
     // Set loading spinner
 
     // Not actually disabling keyboard events but go ahead hack me if you dare.
-    $('div.container').addClass("disabled");
+    $('#main').addClass("disabled");
     handleURL();
-    $('div.container').removeClass("disabled");
+    $('#main').removeClass("disabled");
     return false; 
 });
 
 $('button.btn-sketchify').click(function(e) {
     handleURL();
+    return false;
 });
