@@ -1,6 +1,6 @@
 
 import subprocess
-import urllib.parse as urlparse
+import urlparse
 
 
 

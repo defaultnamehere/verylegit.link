@@ -67,6 +67,7 @@ class URLStoreModel():
     @utils.escape_string_args
     def get_sketchy_url(self, long_url):
 
+        print(long_url)
         url_data = self.db.child("long_urls").child(long_url).get()
 
         # None if we don't have this URL already
