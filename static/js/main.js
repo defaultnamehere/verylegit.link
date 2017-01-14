@@ -39,7 +39,7 @@ function handleURL() {
 
         // So we're using .html here, but feel free to try and XSS yourself if you must.
         $('p.result-long').html('<a href="' + long_url + '">' + long_url + '</a>');
-        $('p.result-sketchy').html('<a href="' + data + '">' + data + '</a>');
+        $('p.result-sketchy').html('<a href="//' + data + '">' + data + '</a>');
 
         // Store the result in the page, ready to copy.
         $('div.example').slideUp(ANIMATION_DURATION);

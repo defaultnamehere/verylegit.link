@@ -4,14 +4,16 @@ import base64
 def firebase_escape(string):
     """'.$[]#/' are not valid Firebase key characters, so we have to 
     not store them before we can store the URL"""
-    return base64.urlsafe_b64encode(string.encode("utf8"))
+    escaped = base64.urlsafe_b64encode(string.encode("utf8")).decode('utf8')
+    return escaped
 
 def firebase_unescape(string):
-    return base64.urlsafe_b64decode(string.encode("utf8"))
+    unescaped = base64.urlsafe_b64decode(string.encode("utf8")).decode('utf8')
+    assert firebase_escape(unescaped) == string
+    return unescaped
 
 def escape_string_args(func):
     def wrapper(*args, **kwargs):
-        import ipdb; ipdb.set_trace()
         escaped_args = []
         escaped_kwargs = {}
         if args is not None:

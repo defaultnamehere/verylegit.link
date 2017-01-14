@@ -44,7 +44,10 @@ class URLStoreModel():
         }
 
         self.db.child("long_urls").child(long_url).set(data)
+        # If there's a collision this is totally going to overwrite the old value lmao.
+        #TODO panic I guess
         self.db.child("sketchy_urls").child(sketchy_url).set(data)
+        print(long_url)
         print("Setting (unescaped)" + utils.firebase_unescape(long_url)+ " -> " + utils.firebase_unescape(sketchy_url))
 
         print("Setting " + long_url + " -> " + sketchy_url)
