@@ -38,7 +38,11 @@
         <div class="result text-center slideable" style="display: none;">
             <p class="result result-long"></p>
             <span class="glyphicon glyphicon-arrow-down downarrow-lg" aria-hidden="true"></span>
-            <p class="result result-sketchy"></p>
+            <p class="result result-sketchy" id="result"></p>
+
+            <div class="copy">
+                <button class="btn btn-primary copy" data-clipboard-target="#result" alt="Copy to clipboard">Copy to clipboard</button>
+            </div>
 
             <h4 class="result about muted">
                 Now go send someone this 👌completely legit👌 link.
@@ -66,11 +70,11 @@
         </form>
 </div>
     <div class="container faq">
-        <div class="container">
+        <div class="container" id="about">
             <h4 class="faq-item">
                 Like a URL shortener, but worse
             </h4>
-            <div class="faq-item " id="about">
+            <div class="faq-item">
                 <p class="muted outro">
                 Who needs a <em>shorter</em> link? Not you, my friend.
                 I mean, when you send someone a link, they just click it <em>anyway</em>, so you might as well find within yourself the strength to bring chaos and hesitation to your internet colleagues.
@@ -82,6 +86,14 @@
             <div class="faq-item ">
                 <p class="muted outro">
                 Uhhh well listen I mean it's probably about as safe as a regular URL shortener, but I wouldn't use it for something you're not okay with being randomly redirected to <a href="http://www.twindog.co/">Tinder for Dogs</a>.
+                </p>
+            </div>
+        </div>
+        <div class="container">
+            <h4 class="faq-item">How do I know the link doesn't <em>actually</em> go somewhere dodgy?</h4>
+            <div class="faq-item ">
+                <p class="muted outro">
+                You don't! You also don't know that this service won't suddenly, say, start redirecting to, <a>https://nsa.gov/careers</a>.
                 </p>
             </div>
         </div>
@@ -98,11 +110,11 @@
             </div>
         </div>
 
-        <div class="container" id="api">
+        <div class="container">
             <h4 class="faq-item">How does it work?</h4>
             <div class="faq-item">
                 <p class="muted outro">
-                    Due to rapid advancement in dark ritual technology, the programming community has streamlined the development and deployment of unspeakable eldrich horrors. Using robust open-source libraries like a sack of live geese, websites like this one can be developed with far more efficient sacrificial rituals than ever before. We're still stuck on the version with really inefficient sacrifical rituals though, due to compatibility issues.
+                    Due to rapid advancement in dark ritual technology, the programming community has streamlined the development and deployment of unspeakable eldrich horrors. Using robust open-source libraries like a sack of live geese, websites like this one can be developed with far more efficient sacrificial rituals than ever before. We're still stuck on the version with really inefficient sacrifical rituals though, due to comp͆aͭatib̊i̼͕l̈̿i̮̜t̚y̅ ͊i͋s̾s̢͈͠u̶e̛̊s̼̃.
                 </p>
             </div>
         </div>
@@ -118,5 +130,6 @@
 
 {% endblock %}
 {% block includejs %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.16/clipboard.min.js"></script>
     <script src="../static/js/main.js"></script>
 {% endblock %}

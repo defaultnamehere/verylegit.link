@@ -12,7 +12,7 @@ MAX_ANTI_COLLISION_NUMBER = 1000
 
 #DOMAINS = ("heapslegit.link", "freemalware.club", "spywareexchange.party")
 DOMAINS = ("sketchify-42ef3.appspot-preview.com", "novelty.website")
-SAMPLE_LONG_URLS = ("http://google.com", "http://facebook.com", "http://i.imgur.com/OpYDgt3.gif")
+SAMPLE_LONG_URLS = ("google.com", "facebook.com", "i.imgur.com/OpYDgt3.gif")
 
 SCARY_WORDS = (
     "free",
@@ -132,10 +132,6 @@ DELIMITERS = (
     "(",
     ")",
     "!",
-    "%20",
-    "%5c",
-    "%8a",
-    "%%",
     "()",
     "!!"
 )
@@ -148,7 +144,6 @@ WEIRD_STRINGS = (
     ";",
     "-",
     ">",
-    "%",
     "@",
     "+"
 )

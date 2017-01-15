@@ -39,8 +39,14 @@ function handleURL() {
 
         // So we're using .html here, but feel free to try and XSS yourself if you must.
         $('p.result-long').html('<a href="' + long_url + '">' + long_url + '</a>');
-        $('p.result-sketchy').html('<a href="//' + data + '">' + data + '</a>');
+        var prefix = "//";
+        if (data.indexOf('http://') === 0 || data.indexOf('https://') === 0) {
+            prefix = "";
+        }
 
+        $('p.result-sketchy').html('<a href="' + prefix + data + '">' + data + '</a>');
+
+        $('input.long-url').val('');
         // Store the result in the page, ready to copy.
         $('div.example').slideUp(ANIMATION_DURATION);
         $('h2.slogan').slideUp(ANIMATION_DURATION);
@@ -81,3 +87,25 @@ $('button.btn-sketchify').click(function(e) {
     handleURL();
     return false;
 });
+
+
+function dedup(fn, duration) {
+    var timeout;
+    return function() {
+        window.clearTimeout(timeout);
+        timeout = window.setTimeout(fn, duration || 1000);
+    };
+}
+
+(function() {
+    var clipboardButton = document.querySelector('button.copy');
+    var clipboard = new Clipboard(clipboardButton);
+    var resetFunction = dedup(function() {
+        clipboardButton.textContent = 'Copy to clipboard';
+    });
+    clipboard.on('success', function(e) {
+        clipboardButton.textContent = 'Copied!';
+        resetFunction();
+        e.clearSelection();
+    });
+}());

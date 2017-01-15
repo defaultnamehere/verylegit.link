@@ -30,8 +30,14 @@ button.btn-sketchify:hover {
     background-color: #00a999;
 }
 
+.navbar-brand {
+    height: 53px;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.242 !important;
+}
 .sketchy-font {
-    font-family: 'Fredericka the Great', cursive;
+    font-family: 'Special Elite', cursive;
 }
 .muted {
     color: #cccccc;
@@ -59,6 +65,10 @@ form.sketchify-form {
     pointer-events: none;
 }
 
+div.sketchify-form {
+    width: 50%;
+    margin: 0 auto;
+}
 input.phrase {
     display: block;
     height: initial;
@@ -180,9 +190,20 @@ div.spinner {
     font-family: monospace;
 }
 
-@media (max-width: 729px)
-h2.slogan {
-    font-size: 32px;
+
+button.copy {
+    margin: 0 auto;
+    display: inline;
+    background-color: #009688 !important;
+}
+button.copy:hover {
+    background-color: #00a999 !important;
+}
+
+@media (max-width: 729px) {
+    h2.slogan {
+        font-size: 32px;
+    }
 }
 
 

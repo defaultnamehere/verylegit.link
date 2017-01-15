@@ -1,11 +1,13 @@
 
 from flask import Flask, render_template, request, abort, redirect
 import random
+import urllib.parse
 
 import database
 import sketchify
 import sketchy_data
 import validate
+
 
 
 app = Flask('heapslegit')
@@ -50,6 +52,9 @@ def sketchify_url():
 @app.route('/<sketchy_extension>', methods=["GET"])
 def redirect_to_sketchy_url(sketchy_extension):
 
+    # Unencode the URL.
+    sketchy_extension = urllib.parse.unquote(sketchy_extension)
+
     # Get the long url for this short url.
     long_url = db.get_long_url(sketchy_extension)
     print(("{sketchy_extension} -> {long_url}".format(sketchy_extension=sketchy_extension,
@@ -61,6 +66,12 @@ def redirect_to_sketchy_url(sketchy_extension):
     if not (long_url.startswith("http://") or long_url.startswith("https://")):
         long_url = "http://" + long_url
     return redirect(long_url)
+
+
+
+@app.errorhandler(404)
+def not_found(e):
+    return render_template("404.html"), 404
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=8080, debug=True)

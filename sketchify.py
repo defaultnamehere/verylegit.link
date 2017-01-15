@@ -9,11 +9,12 @@ def add_random_domain(path):
     return "{domain}/{path}".format(domain=random.choice(sketchy_data.DOMAINS), path=path)
 
 
+RANDOM_STRING_CHARSET = (string.printable + string.punctuation).replace("/", "").replace("%", "")
 def generate_random_string(length=10):
 
     # No slashes!
-    charset = (string.printable + string.punctuation).replace("/", "")
-    return "".join((random.choice(charset) for _ in range(length)))
+    # No % or URL decoding will break
+    return "".join((random.choice(RANDOM_STRING_CHARSET) for _ in range(length)))
 
 
 def generate_sketchy_url():
