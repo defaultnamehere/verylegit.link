@@ -11,7 +11,13 @@ LONG_RANDOM_STIRNG_CHANCE = 0.3
 MAX_ANTI_COLLISION_NUMBER = 1000
 
 #DOMAINS = ("heapslegit.link", "freemalware.club", "spywareexchange.party")
-DOMAINS = ("sketchify-42ef3.appspot-preview.com", "novelty.website")
+DOMAINS = ("sketchify-42ef3.appspot-preview.com",
+           "novelty.website",
+           "verylegit.link",
+           "not.verylegit.link",
+           "very.verylegit.link",
+           "definitely.verylegit.link"
+          )
 SAMPLE_LONG_URLS = ("google.com", "facebook.com", "i.imgur.com/OpYDgt3.gif")
 
 SCARY_WORDS = (
