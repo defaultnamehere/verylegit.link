@@ -68,7 +68,6 @@ def redirect_to_sketchy_url(sketchy_extension):
     return redirect(long_url)
 
 
-
 @app.errorhandler(404)
 def not_found(e):
     return render_template("404.html"), 404
