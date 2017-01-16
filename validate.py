@@ -4,8 +4,6 @@ import socket
 from urllib.parse import urlparse
 
 
-
-
 class URLValidator():
     """Decides whether or not a URL is welcome as part of this 150% legit service."""
 
@@ -40,7 +38,6 @@ class URLValidator():
 
         return all((self.check_length(), self.check_external(), self.check_protocol(), self.check_dns()))
 
-
     def check_length(self):
         return len(self.url) <= self.MAXIMUM_URL_LENGTH
 
@@ -59,8 +56,10 @@ class URLValidator():
         # So here you go.
         try:
             # Ping the domain and see if the DNS resolves.
-            # We could also use the host command here but it's slower since it resolves many kinds of records.
-            print("socket.gethostbyname({domain})...".format(domain=self.domain))
+            # We could also use the host command here but it's slower since it
+            # resolves many kinds of records.
+            print("socket.gethostbyname({domain})...".format(
+                domain=self.domain))
             socket.gethostbyname(self.domain)
             return True
         except socket.gaierror:

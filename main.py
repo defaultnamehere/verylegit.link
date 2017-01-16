@@ -9,9 +9,9 @@ import sketchy_data
 import validate
 
 
-
 app = Flask('heapslegit')
 db = database.URLStoreModel()
+
 
 @app.route('/')
 def index():
@@ -21,22 +21,26 @@ def index():
 
     return render_template("index.html", sample_long_url=sample_long_url, sample_sketchy_url=sample_sketchy_url)
 
+
 @app.route('/sketchify', methods=["POST"])
-def sketchify_url(): 
+def sketchify_url():
 
     long_url = request.form.to_dict().get("long_url")
 
     if long_url is None:
-        # TODO A better error code or just not letting users submit empty forms.
+        # TODO A better error code or just not letting users submit empty
+        # forms.
         return abort(401)
 
     # So you'd like to submit this URL.
-    # Let's just make sure you're not trying to 360 noscope hack somebody first.
+    # Let's just make sure you're not trying to 360 noscope hack somebody
+    # first.
     validator = validate.URLValidator(long_url)
     if not validator.validate_url():
         return abort(401)
 
-    # Try and just get this URL out of the database I mean it might already be there might as well go fishing
+    # Try and just get this URL out of the database I mean it might already be
+    # there might as well go fishing
     sketchy_url = db.get_sketchy_url(long_url)
 
     # Okay fine it wasn't there Thanks Obama
@@ -60,11 +64,12 @@ def redirect_to_sketchy_url(sketchy_extension):
     # Get the long url for this short url.
     long_url = db.get_long_url(sketchy_extension)
     print(("{sketchy_extension} -> {long_url}".format(sketchy_extension=sketchy_extension,
-                                                     long_url=long_url)))
+                                                      long_url=long_url)))
     if long_url is None:
         return abort(404)
 
-    # Add a protocol if one isn't present, so the redirect becomes an absolute URL.
+    # Add a protocol if one isn't present, so the redirect becomes an absolute
+    # URL.
     if not (long_url.startswith("http://") or long_url.startswith("https://")):
         long_url = "http://" + long_url
     return redirect(long_url)
