@@ -9,7 +9,7 @@ def add_random_domain(path):
     return "{domain}/{path}".format(domain=random.choice(sketchy_data.DOMAINS), path=path)
 
 
-RANDOM_STRING_CHARSET = (string.printable + string.punctuation).replace("/", "").replace("%", "").replace("^", "")
+RANDOM_STRING_CHARSET = (string.printable + "-()][;:<>?.,~!`@#$&*").replace("/", "").replace("%", "").replace("^", "")
 def generate_random_string(length=10):
 
     # No slashes!
