@@ -23,7 +23,9 @@ def index():
 
 @app.route('/sketchify', methods=["POST"])
 def sketchify_url(): 
+
     long_url = request.form.to_dict().get("long_url")
+
     if long_url is None:
         # TODO A better error code or just not letting users submit empty forms.
         return abort(401)
@@ -70,6 +72,7 @@ def redirect_to_sketchy_url(sketchy_extension):
 
 @app.errorhandler(404)
 def not_found(e):
+    print("404: ", e)
     return render_template("404.html"), 404
 
 if __name__ == '__main__':
