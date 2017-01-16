@@ -11,7 +11,7 @@ def add_random_domain(path):
 
 
 RANDOM_STRING_CHARSET = (
-    string.printable + "-()][;:<>?.,~!`@#$&*").replace("/", "").replace("%", "").replace("^", "")
+    string.printable + "-()][;:<>.,~!`@$*").replace("/", "").replace("%", "").replace("^", "")
 
 
 def generate_random_string(length=10):
