@@ -65,13 +65,12 @@ class URLStoreModel():
             return None
 
         long_url = utils.firebase_unescape(url_data.val()["long_url"])
-        #print("Getting: " + utils.firebase_unescape(sketchy_url) + " -> " + utils.firebase_unescape(long_url))
+        print("Getting: " + utils.firebase_unescape(sketchy_url) + " -> " + utils.firebase_unescape(long_url))
         return long_url
 
     @utils.escape_string_args
     def get_sketchy_url(self, long_url):
 
-        print(long_url)
         url_data = self.db.child("long_urls").child(long_url).get()
 
         # None if we don't have this URL already
@@ -101,13 +100,21 @@ class URLStoreModel():
 
     @utils.escape_string_args
     def delete_long(self, key):
+        if key is None:
+            print("Not deleting anything as long_url")
+            return
         print("Deleting %s as long_url" % key)
-        return self.db.child("long_urls").child(key).remove()
+        self.db.child("long_urls").child(key).remove()
+        assert self.db.child("long_urls").child(key).get().val() is None
 
     @utils.escape_string_args
     def delete_sketchy(self, key):
+        if key is None:
+            print("Not deleting anything as sketchy_url")
+            return
         print("Deleting %s as sketchy_url" % key)
-        return self.db.child("sketchy_urls").child(key).remove()
+        self.db.child("sketchy_urls").child(key).remove()
+        assert self.db.child("sketchy_urls").child(key).get().val() is None
 
     def purge(self, key):
         """Delete this as both a sketchy url and a long one, as well as its counterpart"""
@@ -118,11 +125,12 @@ class URLStoreModel():
 
         # Delete the whold worrrld.
         print("long, sketchy =", (long_url, sketchy_url))
-        if long_url is not None:
-            print("Deleting %s as long_url" % long_url)
-            self.delete_long(long_url)
-            self.delete_sketchy(long_url)
 
-        if sketchy_url is not None:
-            self.delete_long(sketchy_url)
-            self.delete_sketchy(sketchy_url)
+        self.delete_long(long_url)
+        self.delete_sketchy(long_url)
+
+        self.delete_long(sketchy_url)
+        self.delete_sketchy(sketchy_url)
+
+        self.delete_long(key)
+        self.delete_sketchy(key)
