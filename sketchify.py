@@ -13,12 +13,11 @@ def add_random_domain(path):
 RANDOM_STRING_CHARSET = (
     string.ascii_letters + string.digits + "+=_-()][;:<>.,~!`@$*")
 
+RANDOM_STRING_CHARSET_FIRST_CHAR = (string.ascii_letters + string.digits)
 
 def generate_random_string(length=10):
 
-    # No slashes!
-    # No % or URL decoding will break
-    return "".join((random.choice(RANDOM_STRING_CHARSET) for _ in range(length)))
+    return random.choice(RANDOM_STRING_CHARSET_FIRST_CHAR) + "".join((random.choice(RANDOM_STRING_CHARSET) for _ in range(length - 1 )))
 
 
 def generate_sketchy_url():
