@@ -83,76 +83,21 @@ h4.about {
 }
 
 button.btn-block {
-    width:300px;
+    width: 300px;
     margin:0 auto;
 }
+
+@media (max-width: 729px) {
+    button.btn-block {
+        width: 100%;
+    }
+}
+
 div.sketchify-buttons {
     padding-top: 20px;
 }
-img.snoop {
-    display: inline;
-    position: absolute;
-}
-
-img.snoop-right {
-    margin-left: 300px
-}
 div.outro {
-    padding-top: 200px; /*CSS is too hard. I'm no @taybenlor */
-}
-
-img.illuminati {
-    /* SPOOKY */
-    position: fixed;
-    top: 0;
-    z-index: 10;
-    width: 100%;
-    height: 100%;
-}
-
-img.frog {
-    -moz-animation-timing-function: linear;
-    -moz-animation-name: bounce;
-    -moz-animation-iteration-count: infinite;
-    -moz-animation-direction: alternate;
-    -moz-animation-duration: 3s;
-    -webkit-animation-timing-function: linear;
-    -webkit-animation-duration: 3s;
-    -webkit-animation-name: bounce;
-    -webkit-animation-iteration-count: infinite;
-    -webkit-animation-direction: alternate;
-
-    width: 100px;
-    height: 100px;
-}
-
-
-.flipped {
-    -moz-transform: scaleX(-1);
-    -o-transform: scaleX(-1);
-    -webkit-transform: scaleX(-1);
-    transform: scaleX(-1);
-    filter: FlipH;
-    -ms-filter: "FlipH";
-}
-
-@-webkit-keyframes bounce {
-  from {
-    left: 0%;
-  }
-
-  to {
-    left: 100%;
-  }
-}
-@-moz-keyframes bounce {
-  from {
-    left: 0%;
-  }
-
-  to {
-    left: 100%;
-  }
+    padding-top: 200px;
 }
 
 
@@ -198,6 +143,10 @@ button.copy {
 }
 button.copy:hover {
     background-color: #00a999 !important;
+}
+
+p.sketchy_url a {
+    word-wrap: break-word;
 }
 
 @media (max-width: 729px) {

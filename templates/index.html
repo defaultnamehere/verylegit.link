@@ -29,7 +29,7 @@
     <div class="example slideout text-center">
         <p class="muted"> e.g. <a href="//{{sample_long_url}}">{{sample_long_url}}</a></p>
         <span class="muted glyphicon glyphicon-arrow-down downarrow" aria-hidden="true"></span>
-        <p class="muted"> <a href="//{{sample_sketchy_url}}">{{sample_sketchy_url}}</a></p>
+        <p class="muted sketchy-url"> <a href="//{{sample_sketchy_url}}">{{sample_sketchy_url}}</a></p>
     </div>
 </div>
 
@@ -38,7 +38,7 @@
         <div class="result text-center slideable" style="display: none;">
             <p class="result result-long"></p>
             <span class="glyphicon glyphicon-arrow-down downarrow-lg" aria-hidden="true"></span>
-            <p class="result result-sketchy" id="result"></p>
+            <p class="result result-sketchy sketchy-url" id="result"></p>
 
             <div class="copy">
                 <button class="btn btn-primary copy" data-clipboard-target="#result" alt="Copy to clipboard">Copy to clipboard</button>
@@ -62,7 +62,7 @@
 
             </div>
             <div class="sketchify-form slideable">
-                <input type="text" value="" placeholder="e.g. http://google.com" class="form-control long-url">
+                <input autofocus type="text" value="" placeholder="e.g. http://google.com" class="form-control long-url">
                 <div class="sketchify-buttons">
                     <button type="button " class="btn btn-block btn-lg btn-inverse btn-large btn-sketchify">Make it look dodgy</button>
                 </div>
@@ -93,7 +93,7 @@
             <h4 class="faq-item">How do I know the link doesn't <em>actually</em> go somewhere dodgy?</h4>
             <div class="faq-item ">
                 <p class="muted outro">
-                You don't! You also don't know that this service won't suddenly, say, start redirecting to, <a>https://nsa.gov/careers</a>.
+                You don't! You also don't know that this service won't suddenly, say, start redirecting to, <a href="https://www.nsa.gov/careers">https://nsa.gov/careers</a>.
                 </p>
             </div>
         </div>
@@ -102,10 +102,6 @@
             <div class="faq-item">
                 <p class="muted outro">
                 Sure thing. Just <span class="code">POST long_url=https://example.com</span> to <span class="code">/sketchify</span> and you'll get back a URL.
-                </p>
-
-                <p class="muted outro">
-                    Shout out to <a href="http://www.shadyurl.com/">ShadyURL</a>, for being like this but also from 2010.
                 </p>
             </div>
         </div>
@@ -121,7 +117,11 @@
 
 
     </div>
+    <div class="social-item">
+
+    </div>
     <div class="footer">
+        <a class="github-button" href="https://github.com/defaultnamehere/verylegit.link" data-style="mega" data-count-href="/defaultnamehere/verylegit.link/stargazers" data-count-api="/repos/defaultnamehere/verylegit.link#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star defaultnamehere/verylegit.link on GitHub">Star</a>
         <p class="footer">
         Talk to me about this if you want: <a href="https://twitter.com/@_notlikethis">@_notlikethis</a>
         </p>
@@ -130,6 +130,7 @@
 
 {% endblock %}
 {% block includejs %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.16/clipboard.min.js"></script>
+    <script async defer src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.16/clipboard.min.js"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script src="../static/js/main.js"></script>
 {% endblock %}
