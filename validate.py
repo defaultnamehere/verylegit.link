@@ -1,7 +1,7 @@
 
 import subprocess
-import urllib.parse as urlparse
-
+import socket
+from urllib.parse import urlparse
 
 
 class URLValidator():
@@ -17,7 +17,7 @@ class URLValidator():
         if not (url.startswith("http://") or url.startswith("https://")):
             url = "http://" + url
         self.url = url
-        self.url_parts = urlparse.urlparse(self.url)
+        self.url_parts = urlparse(self.url)
         print(url)
         print(self.url_parts)
         self.protocol = self.url_parts.scheme
@@ -38,7 +38,6 @@ class URLValidator():
 
         return all((self.check_length(), self.check_external(), self.check_protocol(), self.check_dns()))
 
-
     def check_length(self):
         return len(self.url) <= self.MAXIMUM_URL_LENGTH
 
@@ -57,11 +56,13 @@ class URLValidator():
         # So here you go.
         try:
             # Ping the domain and see if the DNS resolves.
-            # We could also use the host command here but it's slower since it resolves many kinds of records.
-            print("Pinging {domain}...".format(domain=self.domain))
-            subprocess.check_call(['/bin/ping','-W','1','-c', '1', self.domain])
+            # We could also use the host command here but it's slower since it
+            # resolves many kinds of records.
+            print("socket.gethostbyname({domain})...".format(
+                domain=self.domain))
+            socket.gethostbyname(self.domain)
             return True
-        except subprocess.CalledProcessError:
+        except socket.gaierror:
             return False
 
     def check_external(self):

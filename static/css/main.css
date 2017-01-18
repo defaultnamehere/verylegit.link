@@ -1,4 +1,3 @@
-/*
 body {
     color: white;
     background-image: url("../img/tile/stardust.png");
@@ -8,7 +7,38 @@ input {
     /* It's fiiiiiiine */
     background-image: url("../img/tile/stardust.png") !important;
 }
-*/
+a {
+    color: #64FFDA;
+}
+a:hover {
+    color: #A7FFEB;
+}
+div.content {
+    color: white;
+}
+nav a {
+    color: white;
+}
+
+nav {
+    background-color: #3c424c;
+}
+button.btn-sketchify {
+    background-color: #009688;
+}
+button.btn-sketchify:hover {
+    background-color: #00a999;
+}
+
+.navbar-brand {
+    height: 53px;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.242 !important;
+}
+.sketchy-font {
+    font-family: 'Special Elite', cursive;
+}
 .muted {
     color: #cccccc;
 }
@@ -22,19 +52,22 @@ span.downarrow {
 }
 
 div.sketchify-form-div{
-
-    padding-top: 150px;
+    margin-top: 50px;
 }
 form.sketchify-form {
 
     width: 350px;
     margin: 0 auto !important;
-
 }
 
 .disabled {
     opacity: 0.4;
     pointer-events: none;
+}
+
+div.sketchify-form {
+    width: 50%;
+    margin: 0 auto;
 }
 input.phrase {
     display: block;
@@ -50,103 +83,34 @@ h4.about {
 }
 
 button.btn-block {
-    width:300px;
+    width: 300px;
     margin:0 auto;
 }
+
+@media (max-width: 729px) {
+    button.btn-block {
+        width: 100%;
+    }
+}
+
 div.sketchify-buttons {
     padding-top: 20px;
 }
-img.snoop {
-    display: inline;
-    position: absolute;
-}
-
-img.snoop-right {
-    margin-left: 300px
-}
 div.outro {
-    padding-top: 200px; /*CSS is too hard. I'm no @taybenlor */
-}
-
-img.illuminati {
-    /* SPOOKY */
-    position: fixed;
-    top: 0;
-    z-index: 10;
-    width: 100%;
-    height: 100%;
-}
-
-img.frog {
-    -moz-animation-timing-function: linear;
-    -moz-animation-name: bounce;
-    -moz-animation-iteration-count: infinite;
-    -moz-animation-direction: alternate;
-    -moz-animation-duration: 3s;
-    -webkit-animation-timing-function: linear;
-    -webkit-animation-duration: 3s;
-    -webkit-animation-name: bounce;
-    -webkit-animation-iteration-count: infinite;
-    -webkit-animation-direction: alternate;
-
-    width: 100px;
-    height: 100px;
+    padding-top: 200px;
 }
 
 
-.flipped {
-    -moz-transform: scaleX(-1);
-    -o-transform: scaleX(-1);
-    -webkit-transform: scaleX(-1);
-    transform: scaleX(-1);
-    filter: FlipH;
-    -ms-filter: "FlipH";
+div.faq {
+    margin-top: 200px;
 }
-
-@-webkit-keyframes bounce {
-  from {
-    left: 0%;
-  }
-
-  to {
-    left: 100%;
-  }
-}
-@-moz-keyframes bounce {
-  from {
-    left: 0%;
-  }
-
-  to {
-    left: 100%;
-  }
-}
-
-
-.cursor-hitmarker {
-    cursor: url("../res/hitmarker.png"), url("../res/hitmarker.png"), auto;
-}
-
-.bottom {
-    position: fixed;
-    bottom: 0px;
-}
-
-img.explosion {
-   width: 50%; 
-   position: fixed;
-}
-
-.right {
-    right: 0;
-}
-
 div.footer {
     padding-top: 200px; /* CSS is hard. I'm no @taybenlor */
+    text-align: center;
 }
 
 div.result {
-    padding-bottom: 150px;
+    padding-bottom: 100px;
 }
 p.result {
     font-size: 32px;
@@ -158,8 +122,75 @@ nav.nav-main {
     border-radius: 0px;
 }
 
+div.spinner {
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.invis {
+    opacity: 0;
+}
+
+.code {
+    font-family: monospace;
+}
+
+
+button.copy {
+    margin: 0 auto;
+    display: inline;
+    background-color: #009688 !important;
+}
+button.copy:hover {
+    background-color: #00a999 !important;
+}
+
+p.sketchy_url a {
+    word-wrap: break-word;
+}
+
+@media (max-width: 729px) {
+    h2.slogan {
+        font-size: 32px;
+    }
+}
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.shake-hard{display:inline-block;transform-origin:center center}.shake-freeze,.shake-constant.shake-constant--hover:hover,.shake-trigger:hover .shake-constant.shake-constant--hover{animation-play-state:paused}.shake-freeze:hover,.shake-trigger:hover .shake-freeze,.shake-hard:hover,.shake-trigger:hover .shake-hard{animation-play-state:running}@keyframes shake-hard{2%{transform:translate(-9px, -4px) rotate(2.5deg)}4%{transform:translate(0px, 6px) rotate(-1.5deg)}6%{transform:translate(3px, -2px) rotate(1.5deg)}8%{transform:translate(-6px, 2px) rotate(-0.5deg)}10%{transform:translate(8px, -8px) rotate(-2.5deg)}12%{transform:translate(-9px, 3px) rotate(-1.5deg)}14%{transform:translate(10px, -1px) rotate(2.5deg)}16%{transform:translate(3px, -3px) rotate(-2.5deg)}18%{transform:translate(6px, -4px) rotate(3.5deg)}20%{transform:translate(-8px, -9px) rotate(-1.5deg)}22%{transform:translate(4px, 1px) rotate(-0.5deg)}24%{transform:translate(7px, -3px) rotate(1.5deg)}26%{transform:translate(6px, 4px) rotate(1.5deg)}28%{transform:translate(2px, -4px) rotate(-2.5deg)}30%{transform:translate(-1px, 0px) rotate(-1.5deg)}32%{transform:translate(1px, -7px) rotate(1.5deg)}34%{transform:translate(7px, 5px) rotate(-0.5deg)}36%{transform:translate(-5px, 9px) rotate(0.5deg)}38%{transform:translate(-5px, 5px) rotate(3.5deg)}40%{transform:translate(4px, -9px) rotate(-0.5deg)}42%{transform:translate(-7px, 9px) rotate(-0.5deg)}44%{transform:translate(10px, -4px) rotate(3.5deg)}46%{transform:translate(-1px, 10px) rotate(1.5deg)}48%{transform:translate(-1px, 6px) rotate(-0.5deg)}50%{transform:translate(-4px, -5px) rotate(-2.5deg)}52%{transform:translate(-5px, 9px) rotate(-0.5deg)}54%{transform:translate(2px, -5px) rotate(3.5deg)}56%{transform:translate(3px, 7px) rotate(2.5deg)}58%{transform:translate(-2px, 7px) rotate(-2.5deg)}60%{transform:translate(-2px, -9px) rotate(0.5deg)}62%{transform:translate(-3px, 3px) rotate(2.5deg)}64%{transform:translate(4px, 0px) rotate(-0.5deg)}66%{transform:translate(1px, -3px) rotate(-1.5deg)}68%{transform:translate(2px, 6px) rotate(0.5deg)}70%{transform:translate(9px, -2px) rotate(-2.5deg)}72%{transform:translate(-4px, -1px) rotate(-2.5deg)}74%{transform:translate(-3px, -6px) rotate(3.5deg)}76%{transform:translate(-9px, -4px) rotate(-1.5deg)}78%{transform:translate(0px, -8px) rotate(3.5deg)}80%{transform:translate(2px, -2px) rotate(0.5deg)}82%{transform:translate(0px, 8px) rotate(-1.5deg)}84%{transform:translate(1px, -4px) rotate(-0.5deg)}86%{transform:translate(-9px, 4px) rotate(-1.5deg)}88%{transform:translate(3px, -1px) rotate(-0.5deg)}90%{transform:translate(6px, -6px) rotate(-1.5deg)}92%{transform:translate(-6px, 1px) rotate(3.5deg)}94%{transform:translate(8px, -4px) rotate(0.5deg)}96%{transform:translate(8px, 0px) rotate(1.5deg)}98%{transform:translate(-7px, 9px) rotate(3.5deg)}0%,100%{transform:translate(0, 0) rotate(0)}}.shake-hard:hover,.shake-trigger:hover .shake-hard,.shake-hard.shake-freeze,.shake-hard.shake-constant{animation-duration:100ms;animation-iteration-count:infinite;animation-name:shake-hard;animation-timing-function:ease-in-out}
+0

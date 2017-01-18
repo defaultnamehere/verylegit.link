@@ -19,6 +19,19 @@ function handleURL() {
     // Get the entered URL.
     var long_url = $('input.long-url').val();
 
+    var $spinner = $('.spinner');
+    var $submitBtn = $('button.btn-sketchify');
+
+    // Show a spinner.
+    // This doesn't use fadeOut, because that sets display: none on the element.
+    // This makes the page layout jank.
+    // By using fadeTo on the opacity property, the hidden element still
+    // takes up space.
+    $spinner.fadeTo('fast', 1);
+
+    // Hide the button for #UX
+    $submitBtn.hide();
+
     // TODO post a google analytics event
     $.post("/sketchify", {
         "long_url": long_url
@@ -27,8 +40,14 @@ function handleURL() {
 
         // So we're using .html here, but feel free to try and XSS yourself if you must.
         $('p.result-long').html('<a href="' + long_url + '">' + long_url + '</a>');
-        $('p.result-sketchy').html('<a href="' + data + '">' + data + '</a>');
+        var prefix = "//";
+        if (data.indexOf('http://') === 0 || data.indexOf('https://') === 0) {
+            prefix = "";
+        }
 
+        $('p.result-sketchy').html('<a href="' + prefix + data + '">' + data + '</a>');
+
+        $('input.long-url').val('');
         // Store the result in the page, ready to copy.
         $('div.example').slideUp(ANIMATION_DURATION);
         $('h2.slogan').slideUp(ANIMATION_DURATION);
@@ -38,12 +57,16 @@ function handleURL() {
         $('form.sketchify').removeClass("has-error")
         $('div.error').hide();
 
+        $spinner.fadeTo('fast', 0);
+        $submitBtn.show();
     })
     .fail(function(data) {
         console.log("failed");
         $('form.sketchify').addClass("has-error")
         $('div.error').show();
         $('div.result').hide(300);
+        $spinner.fadeTo('fast', 0);
+        $submitBtn.show();
     });
     return false;
 };
@@ -55,12 +78,35 @@ $('form.sketchify-form').submit(function(e) {
     // Set loading spinner
 
     // Not actually disabling keyboard events but go ahead hack me if you dare.
-    $('div.container').addClass("disabled");
+    $('#main').addClass("disabled");
     handleURL();
-    $('div.container').removeClass("disabled");
+    $('#main').removeClass("disabled");
     return false; 
 });
 
 $('button.btn-sketchify').click(function(e) {
     handleURL();
+    return false;
 });
+
+
+function dedup(fn, duration) {
+    var timeout;
+    return function() {
+        window.clearTimeout(timeout);
+        timeout = window.setTimeout(fn, duration || 1000);
+    };
+}
+
+(function() {
+    var clipboardButton = document.querySelector('button.copy');
+    var clipboard = new Clipboard(clipboardButton);
+    var resetFunction = dedup(function() {
+        clipboardButton.textContent = 'Copy to clipboard';
+    });
+    clipboard.on('success', function(e) {
+        clipboardButton.textContent = 'Copied!';
+        resetFunction();
+        e.clearSelection();
+    });
+}());
