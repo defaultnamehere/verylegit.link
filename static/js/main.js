@@ -15,6 +15,13 @@ $('.slideable').each(function() {
     }
 });
 
+function escapeHtml(str) {
+    // SO not legit
+    var div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+}
+
 function handleURL() {
     // Get the entered URL.
     var long_url = $('input.long-url').val();
@@ -45,7 +52,7 @@ function handleURL() {
             prefix = "";
         }
 
-        $('p.result-sketchy').html('<a href="' + prefix + data + '">' + data + '</a>');
+        $('p.result-sketchy').html('<a href="' + prefix + data + '">' + escapeHtml(data) + '</a>');
 
         $('input.long-url').val('');
         // Store the result in the page, ready to copy.
