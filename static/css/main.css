@@ -145,7 +145,7 @@ button.copy:hover {
     background-color: #00a999 !important;
 }
 
-p.sketchy_url a {
+p.sketchy-url > a {
     word-wrap: break-word;
 }
 
