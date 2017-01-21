@@ -77,7 +77,7 @@ def redirect_to_sketchy_url(sketchy_extension):
 
 @app.errorhandler(404)
 def not_found(e):
-    print("404: ", e)
+    print("404: ", request)
     return render_template("404.html"), 404
 
 if __name__ == '__main__':

@@ -49,8 +49,6 @@ class URLStoreModel():
         # TODO panic I guess
         self.db.child("sketchy_urls").child(sketchy_url).set(data)
         print(long_url)
-        print("Setting (unescaped)" + utils.firebase_unescape(long_url) +
-              " -> " + utils.firebase_unescape(sketchy_url))
 
         print("Setting " + long_url + " -> " + sketchy_url)
 
@@ -65,7 +63,6 @@ class URLStoreModel():
             return None
 
         long_url = utils.firebase_unescape(url_data.val()["long_url"])
-        print("Getting: " + utils.firebase_unescape(sketchy_url) + " -> " + utils.firebase_unescape(long_url))
         return long_url
 
     @utils.escape_string_args
