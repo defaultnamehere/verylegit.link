@@ -105,15 +105,13 @@ function dedup(fn, duration) {
     };
 }
 
-(function() {
-    var clipboardButton = document.querySelector('button.copy');
-    var clipboard = new Clipboard(clipboardButton);
-    var resetFunction = dedup(function() {
-        clipboardButton.textContent = 'Copy to clipboard';
-    });
-    clipboard.on('success', function(e) {
-        clipboardButton.textContent = 'Copied!';
-        resetFunction();
-        e.clearSelection();
-    });
-}());
+var clipboardButton = document.querySelector('button.copy');
+var clipboard = new Clipboard(clipboardButton);
+var resetFunction = dedup(function() {
+    clipboardButton.textContent = 'Copy to clipboard';
+});
+clipboard.on('success', function(e) {
+    clipboardButton.textContent = 'Copied!';
+    resetFunction();
+    e.clearSelection();
+});
