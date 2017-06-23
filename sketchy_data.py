@@ -11,14 +11,9 @@ LONG_RANDOM_STIRNG_CHANCE = 0.3
 # This is good for a million URLs, but not ten million.
 MAX_ANTI_COLLISION_NUMBER = 1000
 
-DOMAINS = ("sketchify-42ef3.appspot-preview.com",
-           "novelty.website",
-           "verylegit.link",
-           "not.verylegit.link",
-           "very.verylegit.link",
-           "definitely.verylegit.link",
-           "secure.verylegit.link"
-           )
+DOMAINS = ("verylegitlink.appspot.com",
+           "verylegit.link"
+          )
 SAMPLE_LONG_URLS = ("google.com", "facebook.com", "i.imgur.com/OpYDgt3.gif")
 
 SCARY_WORDS = (

@@ -1,7 +1,6 @@
 
 import string
 import random
-import urllib
 
 import sketchy_data
 

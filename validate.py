@@ -1,8 +1,6 @@
 
-import subprocess
-import socket
-from urllib.parse import urlparse
-
+import urlparse
+import httplib
 
 class URLValidator():
     """Decides whether or not a URL is welcome as part of this 150% legit service."""
@@ -17,7 +15,7 @@ class URLValidator():
         if not (url.startswith("http://") or url.startswith("https://")):
             url = "http://" + url
         self.url = url
-        self.url_parts = urlparse(self.url)
+        self.url_parts = urlparse.urlparse(self.url)
         print(url)
         print(self.url_parts)
         self.protocol = self.url_parts.scheme
@@ -50,19 +48,10 @@ class URLValidator():
         """
         Does a DNS lookup on the domain part of the URL to check that it resolves
         """
-        # Okay so this is the best way to resolve DNS with a timeout as far as I can tell.
-        # Ways that are Not This involve installing a dodgy external library or
-        # using multiprocessing and you, dear reader, deserve better than that.
-        # So here you go.
         try:
-            # Ping the domain and see if the DNS resolves.
-            # We could also use the host command here but it's slower since it
-            # resolves many kinds of records.
-            print("socket.gethostbyname({domain})...".format(
-                domain=self.domain))
-            socket.gethostbyname(self.domain)
+            httplib.HTTPConnection(self.domain).request("GET", "/")
             return True
-        except socket.gaierror:
+        except gaierror:
             return False
 
     def check_external(self):

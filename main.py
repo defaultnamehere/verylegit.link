@@ -1,7 +1,7 @@
 
 from flask import Flask, render_template, request, abort, redirect
 import random
-import urllib.parse
+import urllib
 
 import database
 import sketchify
@@ -59,7 +59,7 @@ def sketchify_url():
 def redirect_to_sketchy_url(sketchy_extension):
 
     # Unencode the URL.
-    sketchy_extension = urllib.parse.unquote(sketchy_extension)
+    sketchy_extension = urllib.unquote(sketchy_extension)
 
     # Get the long url for this short url.
     long_url = db.get_long_url(sketchy_extension)
