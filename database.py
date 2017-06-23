@@ -12,7 +12,7 @@ class URLStoreModel():
 
 
         datastore_client = datastore.Client(
-            project="verylegitlink-a3711")
+            project="verylegitlink")
         self.db = datastore_client
         self.initial_setup()
 
