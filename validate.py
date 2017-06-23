@@ -1,7 +1,6 @@
 
-import subprocess
 import socket
-from urllib.parse import urlparse
+import urlparse
 
 
 class URLValidator():
@@ -17,7 +16,7 @@ class URLValidator():
         if not (url.startswith("http://") or url.startswith("https://")):
             url = "http://" + url
         self.url = url
-        self.url_parts = urlparse(self.url)
+        self.url_parts = urlparse.urlparse(self.url)
         print(url)
         print(self.url_parts)
         self.protocol = self.url_parts.scheme
