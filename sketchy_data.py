@@ -12,7 +12,26 @@ LONG_RANDOM_STIRNG_CHANCE = 0.3
 MAX_ANTI_COLLISION_NUMBER = 1000
 
 DOMAINS = ("verylegitlink.appspot.com",
-           "verylegit.link"
+           "verylegit.link",
+           "secure.verylegit.link",
+           "webhost000.verylegit.link",
+           "very.verylegit.link",
+           "not.verylegit.link",
+           "ftp.verylegit.link",
+           "win2003.verylegit.link",
+           "irc.verylegit.link",
+           "ctf.verylegit.link",
+           "w61.verylegit.link",
+           "666.verylegit.link",
+           "1337.verylegit.link",
+           "paypal.verylegit.link",
+           "facebook.verylegit.link",
+           "extremely.absolutely.completely.verylegit.link",
+           "this.is.a.verylegit.link",
+           "hey.look.a.verylegit.link",
+           "click.on.this.verylegit.link",
+           "win.a.free.ipad.verylegit.link",
+           "click.here.to.get.ripped.in.three.weeks.verylegit.link"
           )
 SAMPLE_LONG_URLS = ("google.com", "facebook.com", "i.imgur.com/OpYDgt3.gif")
 
