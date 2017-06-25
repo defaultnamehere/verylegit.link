@@ -10,7 +10,7 @@ def add_random_domain(path):
 
 
 RANDOM_STRING_CHARSET = (
-    string.ascii_letters + string.digits + "+=_-()][;:<>.,~!`@$*")
+    string.ascii_letters + string.digits + "+=_-][;:.,~!`@$*")
 
 RANDOM_STRING_CHARSET_FIRST_CHAR = (string.ascii_letters + string.digits)
 
