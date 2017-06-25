@@ -3,10 +3,9 @@
 
 ### Sample URLs:
 ```
-twitter.com -> http://verylegit.link/movie_119windows-updat.html.min.js.pdf
-google.com -> very.verylegit.link/825pcspeedup.xlsx.zip
-verylegit.link -> definitely.verylegit.link/torrent_718windows7$speedupurpc.msi.gif.zip
-http://www.reactiongifs.com/wp-content/uploads/2013/02/firefly.gif -> http://not.verylegit.link/79password_.dmg.rar
+twitter.com -> [win.a.free.ipad.verylegit.link/CT*OMGb=B5+b+)u6)DU882bitcoin.xlsx.pdf](win.a.free.ipad.verylegit.link/CT*OMGb=B5+b+)u6)DU882bitcoin.xlsx.pdf)
+google.com -> [paypal.verylegit.link/8U70*m[uO409index.apk.pem.dmg(paypal.verylegit.link/8U70*m[uO409index.apk.pem.dmg)
+verylegit.link -> [click.here.to.get.ripped.in.three.weeks.verylegit.link/ip-camera()698download!downloader.min.css.dmg](click.here.to.get.ripped.in.three.weeks.verylegit.link/ip-camera()698download!downloader.min.css.dmg)
 ```
 
 ### How does it work?
@@ -17,11 +16,9 @@ Since only the part after the / matters, you can use any domain you like.
 
 All of these links go to the same place (this page):
 ```
-verylegit.link/970free-iphone(.gif.docm.sh
-not.verylegit.link/970free-iphone(.gif.docm.sh
-novelty.website/970free-iphone(.gif.docm.sh
-sketchify-42ef3.appspot-preview.com//970free-iphone(.gif.docm.sh
-<whatever_you_want>.verylegit.link/970free-iphone(.gif.docm.sh
+verylegit.link/exploit+411botnet.xlsx.rar.pdf
+win2003.verylegit.link/exploit+411botnet.xlsx.rar.pdf
+<anything>.verylegit.link/exploit+411botnet.xlsx.rar.pdf
 ```
 
 ## API
@@ -33,12 +30,13 @@ POST /sketchify
 ```
 Will return
 ```
-http://verylegit.link/movie_119windows-updat.html.min.js.pdf
+   win.a.free.ipad.verylegit.link/CT*OMGb=B5+b+)u6)DU882bitcoin.xlsx.pdf
+
 ```
 
 Go for it!
 
 ## Questions?
-@ me on twitter: [@_notlikethis](https://twitter.com/_notlikethis)
+@ me on twitter: [@mangopdf](https://twitter.com/mangopdf)
 This whole thing was inspired by wanting to give [ShadyURL](http://shadyurl.com) some new and spicy features.
 
