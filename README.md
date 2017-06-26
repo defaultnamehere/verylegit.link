@@ -3,9 +3,9 @@
 
 ### Sample URLs:
 ```
-twitter.com -> [win.a.free.ipad.verylegit.link/CT*OMGb=B5+b+)u6)DU882bitcoin.xlsx.pdf](win.a.free.ipad.verylegit.link/CT*OMGb=B5+b+)u6)DU882bitcoin.xlsx.pdf)
-google.com -> [paypal.verylegit.link/8U70*m[uO409index.apk.pem.dmg(paypal.verylegit.link/8U70*m[uO409index.apk.pem.dmg)
-verylegit.link -> [click.here.to.get.ripped.in.three.weeks.verylegit.link/ip-camera()698download!downloader.min.css.dmg](click.here.to.get.ripped.in.three.weeks.verylegit.link/ip-camera()698download!downloader.min.css.dmg)
+twitter.com -> win.a.free.ipad.verylegit.link/CT*OMGb=B5+b+)u6)DU882bitcoin.xlsx.pdf
+google.com -> paypal.verylegit.link/8U70*m[uO409index.apk.pem.dmg
+verylegit.link -> click.here.to.get.ripped.in.three.weeks.verylegit.link/ip-camera()698download!downloader.min.css.dmg
 ```
 
 ### How does it work?
