@@ -27,8 +27,17 @@ def index():
     sample_sketchy_extension = db.get_sketchy_url(sample_long_url)
 
     sample_sketchy_url = sketchify.add_random_domain(sample_sketchy_extension)
+    try:
+        referrer = request.referrer
+    except AttributeError:
+        referrer = None
 
-    return render_template("index.html", sample_long_url=sample_long_url, sample_sketchy_url=sample_sketchy_url)
+
+    return render_template("index.html",
+                           sample_long_url=sample_long_url,
+                           sample_sketchy_url=sample_sketchy_url,
+                           referrer=referrer
+                          )
 
 
 @app.route('/sketchify', methods=["POST"])
