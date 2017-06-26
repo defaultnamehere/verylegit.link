@@ -11,18 +11,16 @@ import validate
 import google
 
 app = Flask('heapslegit')
+
 try:
     db = database.URLStoreModel()
 except google.cloud.exceptions.TooManyRequests:
     db = None
 
 
-
-
-
 @app.route('/')
 def index():
-    if not db:
+    if db is None:
         return render_template("429.html"), 429
 
     sample_long_url = random.choice(sketchy_data.SAMPLE_LONG_URLS)

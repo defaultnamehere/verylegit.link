@@ -14,7 +14,7 @@ class URLStoreModel():
         datastore_client = datastore.Client(
             project="verylegitlink")
         self.db = datastore_client
-        self.initial_setup()
+        # self.initial_setup()
 
     def initial_setup(self):
         if not self.get_sketchy_url(random.choice(sketchy_data.SAMPLE_LONG_URLS)):
