@@ -68,3 +68,6 @@ class URLStoreModel():
         sketchy_url = result[0]["sketchy_url"]
 
         return sketchy_url
+
+if __name__ == "__main__":
+    URLStoreModel().initial_setup()

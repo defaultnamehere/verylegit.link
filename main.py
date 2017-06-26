@@ -25,6 +25,7 @@ def index():
 
     sample_long_url = random.choice(sketchy_data.SAMPLE_LONG_URLS)
     sample_sketchy_extension = db.get_sketchy_url(sample_long_url)
+
     sample_sketchy_url = sketchify.add_random_domain(sample_sketchy_extension)
 
     return render_template("index.html", sample_long_url=sample_long_url, sample_sketchy_url=sample_sketchy_url)
@@ -89,6 +90,7 @@ def not_found(e):
     return render_template("404.html"), 404
 
 @app.errorhandler(429)
+@app.errorhandler(500)
 def quota_exceeded(e):
     return render_template("429.html"), 429
 
