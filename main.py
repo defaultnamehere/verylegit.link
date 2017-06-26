@@ -8,13 +8,23 @@ import sketchify
 import sketchy_data
 import validate
 
+import google
 
 app = Flask('heapslegit')
-db = database.URLStoreModel()
+try:
+    db = database.URLStoreModel()
+except google.cloud.exceptions.TooManyRequests:
+    db = None
+
+
+
 
 
 @app.route('/')
 def index():
+    if not db:
+        return render_template("429.html"), 429
+
     sample_long_url = random.choice(sketchy_data.SAMPLE_LONG_URLS)
     sample_sketchy_extension = db.get_sketchy_url(sample_long_url)
     sample_sketchy_url = sketchify.add_random_domain(sample_sketchy_extension)
@@ -79,6 +89,10 @@ def redirect_to_sketchy_url(sketchy_extension):
 def not_found(e):
     print("404: ", request)
     return render_template("404.html"), 404
+
+@app.errorhandler(429)
+def quota_exceeded(e):
+    return render_template("429.html"), 429
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=8080, debug=True)
