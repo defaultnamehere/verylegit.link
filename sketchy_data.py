@@ -133,12 +133,8 @@ FILETYPES = (
 # Filetypes that the url could end with.
 ENDING_FILETYPES = (
     "exe",
-    "rar",
-    "zip",
     "pdf",
     "docm",
-    "dmg",
-    "sh"
 )
 
 # Strings to put between the sketchy words.
@@ -150,10 +146,7 @@ DELIMITERS = (
     "+",
     "=",
     "$",
-    "(",
-    ")",
     "!",
-    "()",
     "!!"
 )
 
