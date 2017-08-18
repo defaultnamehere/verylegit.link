@@ -1,5 +1,5 @@
 
-from flask import Flask, render_template, request, abort, redirect
+from flask import Flask, render_template, request, abort, redirect, url_for
 import random
 import urllib
 
@@ -26,7 +26,7 @@ def index():
     sample_long_url = random.choice(sketchy_data.SAMPLE_LONG_URLS)
     sample_sketchy_extension = db.get_sketchy_url(sample_long_url)
 
-    sample_sketchy_url = sketchify.add_random_domain(sample_sketchy_extension)
+    sample_sketchy_url = "verylegit.link/" + sample_sketchy_extension
     try:
         referrer = request.referrer
     except AttributeError:
@@ -86,11 +86,7 @@ def redirect_to_sketchy_url(sketchy_extension):
     if long_url is None:
         return abort(404)
 
-    # Add a protocol if one isn't present, so the redirect becomes an absolute
-    # URL.
-    if not (long_url.startswith("http://") or long_url.startswith("https://")):
-        long_url = "http://" + long_url
-    return redirect(long_url)
+    return redirect(url_for(long_url, _external=True))
 
 
 @app.errorhandler(404)
