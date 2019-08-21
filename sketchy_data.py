@@ -96,7 +96,8 @@ SCARY_WORDS = (
     "test",
     "server1",
     "server1337",
-    "private-key"
+    "private-key",
+    "invoke-mimikatz"
 )
 
 FILETYPES = (
