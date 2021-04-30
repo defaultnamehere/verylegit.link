@@ -28,7 +28,7 @@ pyasn1==0.2.3
 pyasn1-modules==0.0.9
 python-firebase-gae==1.0.1
 requests==2.18.1
-rsa==3.4.2
+rsa==4.7
 six==1.10.0
 urllib3==1.21.1
 WebOb==1.6.1
