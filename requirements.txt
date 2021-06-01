@@ -30,6 +30,6 @@ python-firebase-gae==1.0.1
 requests==2.18.1
 rsa==3.4.2
 six==1.10.0
-urllib3==1.21.1
+urllib3==1.26.5
 WebOb==1.6.1
 Werkzeug==0.12.2
