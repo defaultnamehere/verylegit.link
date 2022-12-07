@@ -1,5 +1,5 @@
 cachetools==2.0.0
-certifi==2017.4.17
+certifi==2022.12.7
 chardet==3.0.4
 click==6.7
 dill==0.2.6
